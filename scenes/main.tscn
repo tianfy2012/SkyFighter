@@ -1,0 +1,131 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/Main.cs" id="1_main"]
+[ext_resource type="Script" path="res://scripts/Background.cs" id="2_bg"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="4_enemy"]
+[ext_resource type="PackedScene" path="res://scenes/obstacle.tscn" id="5_obstacle"]
+[ext_resource type="PackedScene" path="res://scenes/health_pack.tscn" id="6_health"]
+[ext_resource type="Texture2D" path="res://assets/bg_tile.svg" id="7_bgtile"]
+[ext_resource type="PackedScene" path="res://scenes/bullet_pack.tscn" id="8_bulletpack"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+EnemyScene = ExtResource("4_enemy")
+ObstacleScene = ExtResource("5_obstacle")
+HealthPackScene = ExtResource("6_health")
+BulletPackScene = ExtResource("8_bulletpack")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("2_bg")
+BgTexture = ExtResource("7_bgtile")
+
+[node name="Top" type="Sprite2D" parent="Background"]
+
+[node name="Bottom" type="Sprite2D" parent="Background"]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="HealthPacks" type="Node2D" parent="."]
+
+[node name="BulletPacks" type="Node2D" parent="."]
+
+[node name="PlayerBullets" type="Node2D" parent="."]
+
+[node name="EnemyBullets" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(400, 500)
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="HUD" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 320.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "HP: 3/3"
+
+[node name="AmmoHUD" type="Label" parent="."]
+offset_left = 480.0
+offset_top = 8.0
+offset_right = 788.0
+offset_bottom = 46.0
+horizontal_alignment = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "子弹: 30"
+
+[node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="StartScreen" type="Control" parent="UI"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="Overlay" type="ColorRect" parent="UI/StartScreen"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 0.65)
+
+[node name="Title" type="Label" parent="UI/StartScreen"]
+offset_left = 100.0
+offset_top = 160.0
+offset_right = 700.0
+offset_bottom = 260.0
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "SkyFighter"
+
+[node name="StartButton" type="Button" parent="UI/StartScreen"]
+offset_left = 290.0
+offset_top = 300.0
+offset_right = 510.0
+offset_bottom = 364.0
+theme_override_font_sizes/font_size = 28
+text = "开始游戏"
+
+[node name="EndScreen" type="Control" parent="UI"]
+visible = false
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="Overlay" type="ColorRect" parent="UI/EndScreen"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 0.65)
+
+[node name="Result" type="Label" parent="UI/EndScreen"]
+offset_left = 100.0
+offset_top = 190.0
+offset_right = 700.0
+offset_bottom = 270.0
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "游戏结束"
+
+[node name="RestartButton" type="Button" parent="UI/EndScreen"]
+offset_left = 280.0
+offset_top = 320.0
+offset_right = 520.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 28
+text = "再来一局"

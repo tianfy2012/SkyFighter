@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/enemy.svg" id="2_tex"]
+[ext_resource type="PackedScene" path="res://scenes/bullet_enemy.tscn" id="3_bullet"]
+[ext_resource type="PackedScene" path="res://scenes/explosion.tscn" id="4_exp"]
+
+[sub_resource type="RectangleShape2D" id="body_shape"]
+size = Vector2(30, 52)
+
+[sub_resource type="RectangleShape2D" id="hitbox_shape"]
+size = Vector2(34, 56)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_script")
+EnemyBulletScene = ExtResource("3_bullet")
+ExplosionScene = ExtResource("4_exp")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+shape = SubResource("body_shape")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 53
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("hitbox_shape")
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 1.6

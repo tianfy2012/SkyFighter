@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Bullet.cs" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/bullet_enemy.svg" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="body_shape"]
+size = Vector2(7, 14)
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_script")
+Speed = 300.0
+MoveUp = false
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+shape = SubResource("body_shape")
+
+[node name="Cast" type="ShapeCast2D" parent="."]

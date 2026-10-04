@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/Explosion.cs" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/exp1.svg" id="2_f1"]
+[ext_resource type="Texture2D" path="res://assets/exp2.svg" id="3_f2"]
+[ext_resource type="Texture2D" path="res://assets/exp3.svg" id="4_f3"]
+[ext_resource type="Texture2D" path="res://assets/exp4.svg" id="5_f4"]
+
+[node name="Explosion" type="AnimatedSprite2D"]
+process_mode = 3
+script = ExtResource("1_script")
+Frame1 = ExtResource("2_f1")
+Frame2 = ExtResource("3_f2")
+Frame3 = ExtResource("4_f3")
+Frame4 = ExtResource("5_f4")

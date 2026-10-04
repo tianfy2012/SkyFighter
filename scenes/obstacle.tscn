@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/Obstacle.cs" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/obstacle.svg" id="2_tex"]
+[ext_resource type="PackedScene" path="res://scenes/explosion.tscn" id="3_exp"]
+
+[sub_resource type="RectangleShape2D" id="body_shape"]
+size = Vector2(40, 44)
+
+[sub_resource type="RectangleShape2D" id="hitbox_shape"]
+size = Vector2(44, 48)
+
+[node name="Obstacle" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_script")
+ExplosionScene = ExtResource("3_exp")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+shape = SubResource("body_shape")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("hitbox_shape")

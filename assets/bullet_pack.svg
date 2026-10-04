@@ -1,0 +1,27 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- 弹药包本体 -->
+  <rect x="10" y="18" width="44" height="30" rx="4" fill="#3f51b5" stroke="#1a237e" stroke-width="2"/>
+
+  <!-- 弹药包高光 -->
+  <rect x="14" y="22" width="36" height="6" rx="2" fill="#7986cb" opacity="0.6"/>
+
+  <!-- 子弹带 / 弹链装饰 -->
+  <rect x="14" y="34" width="36" height="4" rx="1" fill="#ffd54f"/>
+  <circle cx="18" cy="36" r="1.6" fill="#1a237e"/>
+  <circle cx="26" cy="36" r="1.6" fill="#1a237e"/>
+  <circle cx="34" cy="36" r="1.6" fill="#1a237e"/>
+  <circle cx="42" cy="36" r="1.6" fill="#1a237e"/>
+  <circle cx="50" cy="36" r="1.6" fill="#1a237e"/>
+
+  <!-- 顶部提手 -->
+  <rect x="26" y="10" width="12" height="8" rx="2" fill="#1a237e"/>
+  <rect x="28" y="12" width="8" height="4" rx="1" fill="#3f51b5"/>
+
+  <!-- 补给加号 -->
+  <circle cx="48" cy="20" r="8" fill="#4caf50" stroke="#1b5e20" stroke-width="2"/>
+  <rect x="46" y="14" width="4" height="12" fill="#ffffff"/>
+  <rect x="42" y="18" width="12" height="4" fill="#ffffff"/>
+
+  <!-- 底部阴影 -->
+  <ellipse cx="32" cy="50" rx="18" ry="3" fill="#000000" opacity="0.25"/>
+</svg>
